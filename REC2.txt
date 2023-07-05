@@ -1,0 +1,102 @@
+1Q)
+   
+   public static int arm(int n,int sum){
+        if(n==0){
+            return 0;
+        }
+        int r=n%10;
+        n=n/10;
+        return arm(n,sum)+r*r*r;
+    }
+    public static void main(String[] args) {
+        int n=153;
+       int ans= arm(n,0);
+        if(ans==n){
+            System.out.println("armstrong");
+        }
+        else{
+            System.out.println("not armstrong");
+        }
+    }
+
+2Q)
+
+   public static int pro(int n,int m){
+        if(m==1){
+            return n;
+        }
+        return pro(n,m-1)+n;
+    }
+    public static void main(String[] args) {
+        int n=5;
+        int m=2;
+        int ans=pro(n,m);
+        System.out.println(ans);
+    }
+
+
+3Q)
+   
+
+   public static boolean prime(int n,int i){
+        if(n<=2){
+            return (n==2)?true:false;
+        }
+        if(n%i==0){
+            return false;
+        }
+        if(i*i>n){
+            return true;
+        }
+
+        return prime(n,i+1);
+    }
+    public static void main(String[] args) {
+        int n=5;
+        boolean ans=prime(n,2);
+        System.out.println(ans);
+    }
+
+4Q)
+
+
+  public static int bin(int n){
+        if(n==0){
+            return 0;
+        }
+        return n%2+10*(bin(n/2));
+    }
+    public static void main(String[] args) {
+        int n=10;
+        int ans=bin(n);
+        System.out.println(ans);
+    }
+
+
+5Q)
+   
+    int binary_to_gray(int n, int i)
+    {
+        int a, b;
+        int result = 0;
+        if (n != 0) {
+            // Taking last digit
+            a = n % 10;
+ 
+            n = n / 10;
+ 
+            // Taking second last digit
+            b = n % 10;
+ 
+            if ((a & ~b) == 1 || (~a & b) == 1) {
+                result = (int)(result + pow(10, i));
+            }
+ 
+            return binary_to_gray(n, ++i) + result;
+        }
+        return 0;
+    }
+ 
+
+   
+   
